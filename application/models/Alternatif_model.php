@@ -34,12 +34,13 @@ class Alternatif_model extends CI_Model
       $nama_alternatif = $new_data['nama_alternatif'];
       $nisn = $new_data['nisn'];
       $nis = $new_data['nis'];
+      $jurusan = $new_data['jurusan'];
       $jenis_kelamin = $new_data['jenis_kelamin'];
       $alamat = $new_data['alamat'];
       $no_telepon = $new_data['no_telepon'];
       $id_alternatif = $new_data['id_alternatif'];
 
-      $query = "UPDATE alternatif SET `nama_alternatif` = '$nama_alternatif', `nisn` = '$nisn', `nis` = '$nis', `jenis_kelamin` = '$jenis_kelamin', `alamat` = '$alamat', `no_telepon` = '$no_telepon' WHERE `id_alternatif` = '$id_alternatif'";
+      $query = "UPDATE alternatif SET `nama_alternatif` = '$nama_alternatif', `nisn` = '$nisn', `nis` = '$nis', `jurusan` = '$jurusan', `jenis_kelamin` = '$jenis_kelamin', `alamat` = '$alamat', `no_telepon` = '$no_telepon' WHERE `id_alternatif` = '$id_alternatif'";
       return $this->db->query($query);
    }
 

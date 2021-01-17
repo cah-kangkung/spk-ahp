@@ -34,6 +34,17 @@
                      </div>
                   </div>
                   <div class="form-group row">
+                     <label for="jurusan" class="col-lg-4 col-form-label">Jurusan *</label>
+                     <div class="col-lg-8">
+                        <div class="form-group">
+                           <select class="form-control" id="jurusan" name="jurusan">
+                              <option value="AKL">AKL</option>
+                              <option value="AP">AP</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group row">
                      <label for="jenis_kelamin" class="col-lg-4 col-form-label">Jenis Kelamin *</label>
                      <div class="col-lg-8">
                         <div class="form-group">

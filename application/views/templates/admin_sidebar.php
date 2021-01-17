@@ -59,7 +59,7 @@
     <!-- Nav Item - Users -->
     <li class="nav-item <?php echo ($this->uri->segment(2) == 'user_list' ? 'active' : ''); ?>">
         <a class="nav-link" href="<?php echo site_url(); ?>Alternatif">
-            <i class="fas fa-fw fa-users"></i>
+            <i class="fas fa-database"></i>
             <span>Alternatif</span></a>
     </li>
     <!-- Divider -->
@@ -70,24 +70,11 @@
         Perhitungan
     </div>
 
-    <!-- Nav Item - Test Qeustion Collpapse -->
-    <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_test' ? 'active' : ''); ?>">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages1">
-            <i class="fas fa-fw fa-question"></i>
-            <span>Soal</span>
-        </a>
-        <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?php echo site_url(); ?>admin_test">List Soal</a>
-            </div>
-        </div>
-    </li>
-
     <!-- Nav Item - Edit Test -->
     <li class="nav-item <?php echo ($this->uri->segment(1) == 'edit_test' ? 'active' : ''); ?>">
-        <a class="nav-link" href="<?php echo site_url(); ?>admin_test/edit_test">
+        <a class="nav-link" href="<?php echo site_url(); ?>perhitungan/perbandingan">
             <i class="far fa-fw fa-file-word"></i>
-            <span>Edit Test</span></a>
+            <span>Perbandingan</span></a>
     </li>
 
     <!-- Nav Item - Payment -->

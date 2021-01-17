@@ -30,6 +30,7 @@
                   <tr>
                      <th>Nama Siswa</th>
                      <th>Nisn</th>
+                     <th>Jurusan</th>
                      <th>Action</th>
                   </tr>
                </thead>
@@ -38,6 +39,7 @@
                      <tr>
                         <td><?php echo $alternatif['nama_alternatif'] ?></td>
                         <td><?php echo $alternatif['nisn'] ?></td>
+                        <td><?php echo $alternatif['jurusan'] ?></td>
                         <td>
                            <a href="<?php echo site_url(); ?>alternatif/hapus_alternatif/<?php echo $alternatif['id_alternatif']; ?>"><span class="badge badge-danger">Hapus</span></a>
                            <a href="<?php echo site_url(); ?>alternatif/edit_alternatif/<?php echo $alternatif['id_alternatif']; ?>"><span class="badge badge-secondary">Edit</span></a>
