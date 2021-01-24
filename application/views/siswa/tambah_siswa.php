@@ -8,15 +8,15 @@
          <!-- Basic Card Example -->
          <div class="card shadow mb-4">
             <div class="card-header py-3">
-               <h6 class="m-0 font-weight-bold text-primary">Tambah Alternatif</h6>
+               <h6 class="m-0 font-weight-bold text-primary">Tambah Siswa</h6>
             </div>
             <div class="card-body">
-               <form action="<?php echo site_url(); ?>alternatif/tambah_alternatif" method="post">
+               <form action="<?php echo site_url(); ?>siswa/tambah_siswa" method="post">
                   <div class="form-group row">
-                     <label for="nama_alternatif" class="col-lg-4 col-form-label">Nama Siswa *</label>
+                     <label for="nama_siswa" class="col-lg-4 col-form-label">Nama Siswa *</label>
                      <div class="col-lg-8">
-                        <input type="text" class="form-control" id="nama_alternatif" name="nama_alternatif" autofocus><?php echo set_value('nama_alternatif'); ?></input>
-                        <?php echo form_error('nama_alternatif', '<small class="text-danger pl-2">', '</small>'); ?>
+                        <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" autofocus><?php echo set_value('nama_siswa'); ?></input>
+                        <?php echo form_error('nama_siswa', '<small class="text-danger pl-2">', '</small>'); ?>
                      </div>
                   </div>
                   <div class="form-group row">

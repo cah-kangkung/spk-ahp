@@ -3,8 +3,8 @@
 
    <!-- Page Heading -->
    <div class="d-sm-flex align-items-center mb-4">
-      <h1 class="h3 mb-0 text-gray-800 mr-4">List Alternatif</h1>
-      <a class="btn btn-primary" href="<?php echo site_url(); ?>Alternatif/tambah_alternatif">Tambah</a>
+      <h1 class="h3 mb-0 text-gray-800 mr-4">List Siswa</h1>
+      <a class="btn btn-primary" href="<?php echo site_url(); ?>Siswa/tambah_siswa">Tambah</a>
    </div>
 
    <?php if ($this->session->flashdata('danger_alert')) : ?>
@@ -35,14 +35,14 @@
                   </tr>
                </thead>
                <tbody>
-                  <?php foreach ($alt as $alternatif) : ?>
+                  <?php foreach ($siswa as $sis) : ?>
                      <tr>
-                        <td><?php echo $alternatif['nama_alternatif'] ?></td>
-                        <td><?php echo $alternatif['nisn'] ?></td>
-                        <td><?php echo $alternatif['jurusan'] ?></td>
+                        <td><?php echo $sis['nama_siswa'] ?></td>
+                        <td><?php echo $sis['nisn'] ?></td>
+                        <td><?php echo $sis['jurusan'] ?></td>
                         <td>
-                           <a href="<?php echo site_url(); ?>alternatif/hapus_alternatif/<?php echo $alternatif['id_alternatif']; ?>"><span class="badge badge-danger">Hapus</span></a>
-                           <a href="<?php echo site_url(); ?>alternatif/edit_alternatif/<?php echo $alternatif['id_alternatif']; ?>"><span class="badge badge-secondary">Edit</span></a>
+                           <a href="<?php echo site_url(); ?>siswa/hapus_siswa/<?php echo $sis['id_siswa']; ?>"><span class="badge badge-danger">Hapus</span></a>
+                           <a href="<?php echo site_url(); ?>siswa/edit_siswa/<?php echo $sis['id_siswa']; ?>"><span class="badge badge-secondary">Edit</span></a>
                         </td>
                      </tr>
                   <?php endforeach; ?>
