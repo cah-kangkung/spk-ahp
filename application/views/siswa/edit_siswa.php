@@ -40,9 +40,15 @@
                            <?php if ($alt['jurusan'] == 2) : ?>
                               <option value="AKL" selected>AKL</option>
                               <option value="AP">AP</option>
-                           <?php else : ?>
+                              <option value="OTKP">OTKP</option>
+                           <?php elseif ($alt['jurusan'] == 3) : ?>
                               <option value="AKL">AKL</option>
                               <option value="AP" selected>AP</option>
+                              <option value="OTKP">OTKP</option>
+                           <?php else : ?>
+                              <option value="AKL">AKL</option>
+                              <option value="AP">AP</option>
+                              <option value="OTKP" selected>OTKP</option>
                            <?php endif; ?>
                         </select>
                      </div>
@@ -62,7 +68,7 @@
                      </div>
                   </div>
                   <div class="form-group row">
-                     <label for="alamat" class="col-lg-3 col-form-label">alamat *</label>
+                     <label for="alamat" class="col-lg-3 col-form-label">Alamat *</label>
                      <div class="col-lg-9">
                         <textarea class="form-control" id="alamat" name="alamat" row="3" value="<?php echo $alt['alamat']; ?>"></textarea>
                         <?php echo form_error('alamat', '<small class="text-danger pl-2">', '</small>'); ?>
@@ -71,7 +77,7 @@
                   <div class="form-group row">
                      <label for="no_telpon" class="col-lg-3 col-form-label">Nomor Telp *</label>
                      <div class="col-lg-9">
-                        <input type="number" class="form-control" id="no_telpon" name="no_telpon" value="<?php echo $alt['no_telpon']; ?>"></input>
+                        <input type="number" class="form-control" id="no_telepon" name="no_telepon" value="<?php echo $alt['no_telepon']; ?>"></input>
                         <?php echo form_error('no_telpon', '<small class="text-danger pl-2">', '</small>'); ?>
                      </div>
                   </div>

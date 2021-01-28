@@ -40,6 +40,7 @@
                            <select class="form-control" id="jurusan" name="jurusan">
                               <option value="AKL">AKL</option>
                               <option value="AP">AP</option>
+                              <option value="OTKP">OTKP</option>
                            </select>
                         </div>
                      </div>
@@ -71,7 +72,7 @@
                   </div>
                   <small style="color: red;">*harus diisi</small>
                   <div class="d-flex mt-4">
-                     <a href="<?php echo site_url(); ?>kriteria" class="btn btn-secondary ml-auto">Kembali</a>
+                     <a href="<?php echo site_url(); ?>Siswa" class="btn btn-secondary ml-auto">Kembali</a>
                      <button type="submit" class="btn btn-primary ml-3">Tambah</button>
                   </div>
                </form>

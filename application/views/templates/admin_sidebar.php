@@ -62,6 +62,13 @@
             <i class="fas fa-database"></i>
             <span>Siswa</span></a>
     </li>
+
+    <!-- Nav Item - Users -->
+    <li class="nav-item <?php echo ($this->uri->segment(2) == 'user_list' ? 'active' : ''); ?>">
+        <a class="nav-link" href="<?php echo site_url(); ?>Nilai_siswa">
+            <i class="fas fa-database"></i>
+            <span>Nilai Siswa</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 
