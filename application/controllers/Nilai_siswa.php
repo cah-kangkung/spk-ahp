@@ -26,7 +26,8 @@ class Nilai_siswa extends CI_Controller
          $username = $this->session->userdata('username');
          $nama_siswa = $this->session->userdata('nama_siswa');
          $data['user_data'] = $this->User->getUserByUsername($username);
-         $data['data_siswa'] = $this->Siswa->getSiswaByID($nama_siswa);
+         $data['data_siswa'] = $this->Siswa->getAllSiswa();
+         $data['nama_siswa'] = $this->Siswa->getSiswaByNmSiswa($nama_siswa);
          $data['nilaisiswa'] = $this->Nilai_Siswa->getAllNilaiSiswa();
          $data['title'] = "Manage Nilai Siswa";
 
@@ -99,40 +100,32 @@ class Nilai_siswa extends CI_Controller
 
          // get all user information from the database
          $username = $this->session->userdata('username');
-         $nama_siswa = $this->session->userdata('nama_siswa');
-         $data['siswa']  = $this->Siswa->getSiswaByNmSiswa($nama_siswa);
          $data['user_data'] = $this->User->getUserByUsername($username);
 
-         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required|trim', ['required' => 'Nama Siswa harus diisi']);
-         $this->form_validation->set_rules('nisn', 'NISN', 'required|trim', ['required' => 'NISN harus diisi']);
-         $this->form_validation->set_rules('nis', 'NIS', 'required|trim', ['required' => 'NIS harus diisi']);
-         $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required|trim', ['required' => 'Jenis Kelamin harus diisi']);
-         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', ['required' => 'Alamat harus diisi']);
-         $this->form_validation->set_rules('no_telepon', 'Nomor Telp', 'required|trim', ['required' => 'Nomor Telp harus diisi']);
+         $this->form_validation->set_rules('akademik', 'Nilai Akademik', 'required|trim', ['required' => 'Nilai Akademik harus diisi']);
+         $this->form_validation->set_rules('sikap', 'Nilai Sikap', 'required|trim', ['required' => 'Nilai Sikap harus diisi']);
+         $this->form_validation->set_rules('keaktifan', 'Nilai Keaktifan', 'required|trim', ['required' => 'Nilai Keaktifan harus diisi']);
 
          if ($this->form_validation->run() == false) {
-            $data['title'] = "Admin|Edit Siswa";
-            $data['alt'] = $this->Siswa->getSiswaByID($id_siswa);
+            $data['title'] = "Admin|Edit Nilai Siswa";
+            $data['nisis'] = $this->Siswa->getSiswaByID($id_siswa);
             $this->load->view('templates/admin_headbar', $data);
             $this->load->view('templates/admin_sidebar');
             $this->load->view('templates/admin_topbar');
-            $this->load->view('siswa/edit_siswa');
+            $this->load->view('nilai_siswa/edit_nilai_siswa');
             $this->load->view('templates/admin_footer');
          } else {
             $data = [
-               'nama_siswa' => $this->input->post('nama_siswa'),
-               'nisn' => $this->input->post('nisn'),
-               'nis' => $this->input->post('nis'),
-               'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-               'alamat' => $this->input->post('alamat'),
-               'no_telepon' => $this->input->post('no_telepon'),
-               'id_siswa' => $id_siswa
+               'akademik' => $this->input->post('akademik'),
+               'sikap' => $this->input->post('sikap'),
+               'keaktifan' => $this->input->post('keaktifan'),
+               'id_nilai_siswa' => $this->input->post('id_nilai_siswa')
             ];
 
-            $this->Siswa->editSiswaData($data);
+            $this->Nilai_Siswa->editNilaiSiswaData($data);
 
             $this->session->set_flashdata('success_alert', 'Siswa berhasil diedit!');
-            redirect('siswa');
+            redirect('nilai_siswa');
          }
       }
    }

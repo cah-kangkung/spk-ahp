@@ -29,6 +29,8 @@
                <thead>
                   <tr>
                      <th>Nama Siswa</th>
+                     <th>NISN</th>
+                     <th>Jurusan</th>
                      <th>Action</th>
                   </tr>
                </thead>
@@ -36,9 +38,11 @@
                   <?php foreach ($data_siswa as $sis) : ?>
                      <tr>
                         <td><?php echo $sis['nama_siswa'] ?></td>
+                        <td><?php echo $sis['nisn'] ?></td>
+                        <td><?php echo $sis['jurusan'] ?></td>
                         <td>
-                           <a href="<?php echo site_url(); ?>nilai_siswa/hapus_nilai_siswa/<?php echo $sis['nama_siswa']; ?>"><span class="badge badge-danger">Hapus</span></a>
-                           <a href="<?php echo site_url(); ?>nilai_siswa/edit_nilai_siswa/<?php echo $sis['nama_siswa']; ?>"><span class="badge badge-secondary">Edit</span></a>
+                           <a href="<?php echo site_url(); ?>nilai_siswa/hapus_nilai_siswa/<?php echo $sis['id_siswa']; ?>"><span class="badge badge-danger">Hapus</span></a>
+                           <a href="<?php echo site_url(); ?>nilai_siswa/edit_nilai_siswa/<?php echo $sis['id_siswa']; ?>"><span class="badge badge-secondary">Edit</span></a>
                         </td>
                      </tr>
                   <?php endforeach; ?>

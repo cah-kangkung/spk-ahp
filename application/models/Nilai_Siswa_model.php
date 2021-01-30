@@ -29,7 +29,7 @@ class Nilai_Siswa_model extends CI_Model
       return $this->db->count_all('nilai_siswa');
    }
 
-   public function editSiswaData($new_data = array())
+   public function editNilaiSiswaData($new_data = array())
    {
       $akademik = $new_data['akademik'];
       $sikap = $new_data['sikap'];

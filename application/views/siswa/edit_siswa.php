@@ -83,7 +83,7 @@
                   </div>
                   <small style="color: red;">*harus diisi</small>
                   <div class="d-flex mt-4">
-                     <a href="<?php echo site_url(); ?>admin_manage_user" class="btn btn-secondary ml-auto">Kembali</a>
+                     <a href="<?php echo site_url(); ?>siswa" class="btn btn-secondary ml-auto">Kembali</a>
                      <button type="submit" class="btn btn-primary ml-3">Edit</button>
                   </div>
                </form>
