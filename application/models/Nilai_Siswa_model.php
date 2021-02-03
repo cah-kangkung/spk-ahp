@@ -11,12 +11,12 @@ class Nilai_Siswa_model extends CI_Model
 
    public function getAllNilaiSiswa()
    {
-      return $this->db->query("SELECT * FROM nilai_siswa ")->result_array();
+      return $this->db->query("SELECT * FROM nilai_siswa INNER JOIN siswa ON nilai_siswa.id_siswa=siswa.id_siswa")->result_array();
    }
 
    public function getNilaiSiswaByID($id_nilai_siswa)
    {
-      return $this->db->query("SELECT * FROM nilai_siswa WHERE `id_nilai_siswa` = '$id_nilai_siswa'")->row_array();
+      return $this->db->query("SELECT * FROM nilai_siswa INNER JOIN siswa ON nilai_siswa.id_siswa=siswa.id_siswa WHERE `id_nilai_siswa` = '$id_nilai_siswa'")->row_array();
    }
 
    public function getNilaiSiswaByNmSiswa($nama_siswa)

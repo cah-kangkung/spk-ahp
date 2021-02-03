@@ -35,14 +35,14 @@
                   </tr>
                </thead>
                <tbody>
-                  <?php foreach ($data_siswa as $sis) : ?>
+                  <?php foreach ($nilaisiswa as $nisis) : ?>
                      <tr>
-                        <td><?php echo $sis['nama_siswa'] ?></td>
-                        <td><?php echo $sis['nisn'] ?></td>
-                        <td><?php echo $sis['jurusan'] ?></td>
+                        <td><?php echo $nisis['nama_siswa'] ?></td>
+                        <td><?php echo $nisis['nisn'] ?></td>
+                        <td><?php echo $nisis['jurusan'] ?></td>
                         <td>
-                           <a href="<?php echo site_url(); ?>nilai_siswa/hapus_nilai_siswa/<?php echo $sis['id_siswa']; ?>"><span class="badge badge-danger">Hapus</span></a>
-                           <a href="<?php echo site_url(); ?>nilai_siswa/edit_nilai_siswa/<?php echo $sis['id_siswa']; ?>"><span class="badge badge-secondary">Edit</span></a>
+                           <a href="<?php echo site_url(); ?>nilai_siswa/hapus_nilai_siswa/<?php echo $nisis['id_siswa']; ?>"><span class="badge badge-danger">Hapus</span></a>
+                           <a href="<?php echo site_url(); ?>nilai_siswa/edit_nilai_siswa/<?php echo $nisis['id_siswa']; ?>"><span class="badge badge-secondary">Edit</span></a>
                         </td>
                      </tr>
                   <?php endforeach; ?>

@@ -14,13 +14,18 @@ class Admin_dashboard extends CI_Controller
 
             $this->load->model('User_model', 'User');
             $this->load->model('Siswa_model', 'Siswa');
+            //$this->load->model('Alternatif_model', 'Alternatif');
             $data['title'] = "Dashboard";
 
             // get all user information from the database
             $username = $this->session->userdata('username');
             $data['user_data'] = $this->User->getUserByUsername($username);
             $siswa = $this->Siswa->getAllSiswa();
+            //$alternatif = $this->Alternatif->getAllAlternatif();
+            $user = $this->User->getAllUser();
             $data['total_siswa'] = $this->Siswa->countSiswa($siswa);
+            $data['total_user'] = $this->User->countUser($user);
+            //$data['total_alternatif'] = $this->Alternatif->countAlternatif($alternatif);
 
 
             $this->load->view('templates/admin_headbar', $data);

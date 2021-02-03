@@ -16,8 +16,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Pemasukan</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rp <?php echo $total_earning / 1000; ?>,000</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Jumlah Siswa</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"> <?php echo $total_siswa; ?></div>
                         </div>
                         <div class="col-auto">
                             <img src="<?php echo base_url(); ?>assets/img/rupiah.png" style="filter: grayscale(100%);" alt="">

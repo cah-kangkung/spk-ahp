@@ -83,18 +83,26 @@
             <i class="far fa-fw fa-file-word"></i>
             <span>Alternatif</span></a>
     </li>
-    <!-- Nav Item - Edit Test -->
-    <li class="nav-item <?php echo ($this->uri->segment(1) == 'edit_test' ? 'active' : ''); ?>">
-        <a class="nav-link" href="<?php echo site_url(); ?>perhitungan/perbandingan">
-            <i class="far fa-fw fa-file-word"></i>
-            <span>Perbandingan</span></a>
+
+    <!-- Nav Item - Test Qeustion Collpapse -->
+    <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_test' ? 'active' : ''); ?>">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages1">
+            <i class="fas fa-fw fa-question"></i>
+            <span>Perbandingan</span>
+        </a>
+        <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?php echo site_url(); ?>perhitungan/perbandingan/perbandingan_kriteria/index">Perbandingan Kriteria</a>
+                <a class="collapse-item" href="<?php echo site_url(); ?>perhitungan/perbandingan/perbandingan_alternatif/index">Perbandingan Alternatif</a>
+            </div>
+        </div>
     </li>
 
     <!-- Nav Item - Payment -->
     <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_payment' ? 'active' : ''); ?>">
-        <a class="nav-link" href="<?php echo site_url(); ?>admin_payment">
+        <a class="nav-link" href="<?php echo site_url(); ?>perhitungan/hasil">
             <i class="far fa-fw fa-credit-card"></i>
-            <span>Pembayaran</span></a>
+            <span>Hasil</span></a>
     </li>
 
     <!-- Divider -->

@@ -59,6 +59,7 @@ class Nilai_siswa extends CI_Controller
 
          if ($this->form_validation->run() == false) {
             $data['title'] = "Admin|Tambah Nilai Siswa";
+            $data['data_siswa'] = $this->Siswa->getAllSiswa();
             $this->load->view('templates/admin_headbar', $data);
             $this->load->view('templates/admin_sidebar');
             $this->load->view('templates/admin_topbar');
@@ -69,26 +70,26 @@ class Nilai_siswa extends CI_Controller
                'akademik' => $this->input->post('akademik'),
                'sikap' => $this->input->post('sikap'),
                'keaktifan' => $this->input->post('keaktifan'),
-               'id_nilai_siswa' => $this->input->post('id_nilai_siswa')
+               'id_siswa' => $this->input->post('id_siswa'),
             ];
 
             $this->Nilai_Siswa->insert($data);
 
-            $this->session->set_flashdata('success_alert', 'Siswa berhasil ditambah!');
+            $this->session->set_flashdata('success_alert', 'Nilai siswa berhasil ditambah!');
             redirect('nilai_siswa');
          }
       }
    }
 
-   public function hapus_siswa($id)
+   public function hapus_nilai_siswa($id)
    {
       # code...
-      $this->Siswa->deleteSiswa($id);
-      $this->session->set_flashdata('success_alert', 'Siswa berhasil dihapus!');
-      redirect('siswa');
+      $this->Nilai_Siswa->deleteNilaiSiswa($id);
+      $this->session->set_flashdata('success_alert', 'Nilai siswa berhasil dihapus!');
+      redirect('nilai_siswa');
    }
 
-   public function edit_siswa($id_siswa)
+   public function edit_nilai_siswa($id_nilai_siswa)
    {
       # code...
       if (!$this->session->userdata('loggedIn')) {
@@ -101,6 +102,7 @@ class Nilai_siswa extends CI_Controller
          // get all user information from the database
          $username = $this->session->userdata('username');
          $data['user_data'] = $this->User->getUserByUsername($username);
+         $data['nilai_siswa'] = $this->Nilai_Siswa->getNilaiSiswaByID($id_nilai_siswa);
 
          $this->form_validation->set_rules('akademik', 'Nilai Akademik', 'required|trim', ['required' => 'Nilai Akademik harus diisi']);
          $this->form_validation->set_rules('sikap', 'Nilai Sikap', 'required|trim', ['required' => 'Nilai Sikap harus diisi']);
@@ -108,7 +110,7 @@ class Nilai_siswa extends CI_Controller
 
          if ($this->form_validation->run() == false) {
             $data['title'] = "Admin|Edit Nilai Siswa";
-            $data['nisis'] = $this->Siswa->getSiswaByID($id_siswa);
+            $data['data_siswa'] = $this->Siswa->getAllSiswa();
             $this->load->view('templates/admin_headbar', $data);
             $this->load->view('templates/admin_sidebar');
             $this->load->view('templates/admin_topbar');
@@ -119,12 +121,12 @@ class Nilai_siswa extends CI_Controller
                'akademik' => $this->input->post('akademik'),
                'sikap' => $this->input->post('sikap'),
                'keaktifan' => $this->input->post('keaktifan'),
-               'id_nilai_siswa' => $this->input->post('id_nilai_siswa')
+               'id_siswa' => $this->input->post('id_siswa'),
             ];
 
-            $this->Nilai_Siswa->editNilaiSiswaData($data);
+            $this->Nilai_Siswa->insert($data);
 
-            $this->session->set_flashdata('success_alert', 'Siswa berhasil diedit!');
+            $this->session->set_flashdata('success_alert', 'Nilai siswa berhasil diedit!');
             redirect('nilai_siswa');
          }
       }
