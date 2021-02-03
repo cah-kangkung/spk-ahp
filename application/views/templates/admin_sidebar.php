@@ -92,7 +92,7 @@
         </a>
         <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?php echo site_url(); ?>perhitungan/perbandingan/perbandingan_kriteria/index">Perbandingan Kriteria</a>
+                <a class="collapse-item" href="<?php echo site_url(); ?>perbandingan/perbandingan_kriteria">Perbandingan Kriteria</a>
                 <a class="collapse-item" href="<?php echo site_url(); ?>perhitungan/perbandingan/perbandingan_alternatif/index">Perbandingan Alternatif</a>
             </div>
         </div>
