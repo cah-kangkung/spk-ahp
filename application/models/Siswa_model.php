@@ -24,9 +24,19 @@ class Siswa_model extends CI_Model
       return $this->db->query("SELECT * FROM siswa WHERE `nama_siswa` = '$nama_siswa'")->row_array();
    }
 
+   public function getAllSiswaByStatus($status)
+   {
+      return $this->db->query("SELECT * FROM siswa WHERE `status_nilai` = '$status'")->result_array();
+   }
+
    public function countSiswa()
    {
       return $this->db->count_all('siswa');
+   }
+
+   public function changeStatus($id_siswa, $status)
+   {
+      return $this->db->query("UPDATE siswa SET `status_nilai` = '$status' WHERE `id_siswa` = '$id_siswa'");
    }
 
    public function editSiswaData($new_data = array())

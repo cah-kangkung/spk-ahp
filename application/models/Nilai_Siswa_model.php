@@ -11,12 +11,12 @@ class Nilai_Siswa_model extends CI_Model
 
    public function getAllNilaiSiswa()
    {
-      return $this->db->query("SELECT * FROM nilai_siswa INNER JOIN siswa ON nilai_siswa.id_siswa=siswa.id_siswa")->result_array();
+      return $this->db->query("SELECT * FROM siswa INNER JOIN nilai_siswa ON siswa.id_siswa=nilai_siswa.id_siswa")->result_array();
    }
 
-   public function getNilaiSiswaByID($id_nilai_siswa)
+   public function getNilaiSiswaByIdSiswa($id_siswa)
    {
-      return $this->db->query("SELECT * FROM nilai_siswa INNER JOIN siswa ON nilai_siswa.id_siswa=siswa.id_siswa WHERE `id_nilai_siswa` = '$id_nilai_siswa'")->row_array();
+      return $this->db->query("SELECT * FROM nilai_siswa INNER JOIN kriteria ON nilai_siswa.id_kriteria=kriteria.id_kriteria WHERE `id_siswa` = '$id_siswa'")->result_array();
    }
 
    public function getNilaiSiswaByNmSiswa($nama_siswa)
@@ -31,18 +31,17 @@ class Nilai_Siswa_model extends CI_Model
 
    public function editNilaiSiswaData($new_data = array())
    {
-      $akademik = $new_data['akademik'];
-      $sikap = $new_data['sikap'];
-      $keaktifan = $new_data['keaktifan'];
-      $id_nilai_siswa = $new_data['id_nilai_siswa'];
+      $nilai = $new_data['nilai'];
+      $id_kriteria = $new_data['id_kriteria'];
+      $id_siswa = $new_data['id_siswa'];
 
-      $query = "UPDATE nilai_siswa SET `akademik` = '$akademik', `sikap` = '$sikap', `keaktifan` = '$keaktifan' WHERE `id_nilai_siswa` = '$id_nilai_siswa'";
+      $query = "UPDATE nilai_siswa SET `nilai` = '$nilai' WHERE `id_siswa` = '$id_siswa' AND `id_kriteria` = '$id_kriteria'";
       return $this->db->query($query);
    }
 
-   public function deleteNilaiSiswa($id)
+   public function deleteNilaiSiswa($id_siswa)
    {
-      $query = "DELETE FROM nilai_siswa WHERE `id_nilai_siswa` = '$id'";
+      $query = "DELETE FROM nilai_siswa WHERE `id_siswa` = '$id_siswa'";
       return $this->db->query($query);
    }
 

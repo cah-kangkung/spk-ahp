@@ -10,35 +10,38 @@
                <h6 class="m-0 font-weight-bold text-primary">Edit Nilai Siswa</h6>
             </div>
             <div class="card-body">
-               <form action="<?php echo site_url(); ?>nilai_siswa/edit_nilai_siswa/<?php echo $nilai_siswa['id_siswa']; ?>" <?php echo $nilai_siswa['id_siswa']; ?> method="post">
+               <form action="<?php echo site_url(); ?>nilai_siswa/edit_nilai_siswa/<?php echo $siswa['id_siswa']; ?>" method="post">
                   <div class="form-group row">
-                     <label for="nama_siswa" class="col-lg-3 col-form-label">Nama Siswa *</label>
-                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="<?php echo $nilai_siswa['nama_siswa']; ?>" autofocus>
-                        <?php echo form_error('nama_siswa', '<small class="text-danger pl-2">', '</small>'); ?>
+                     <label for="nama_siswa" class="col-lg-4 col-form-label">Nama Siswa *</label>
+                     <div class="col-lg-8">
+                        <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="<?php echo $siswa['nama_siswa']; ?>" autofocus>
+                        <input type="hidden" name="id_siswa" value="<?php echo $siswa['id_siswa']; ?>">
+                        <?php echo form_error('id_siswa', '<small class="text-danger pl-2">', '</small>'); ?>
                      </div>
                   </div>
-                  <div class="form-group row">
-                     <label for="akademik" class="col-lg-3 col-form-label">Nilai Akademik *</label>
-                     <div class="col-lg-9">
-                        <input type="number" class="form-control" id="akademik" name="akademik" value="<?php echo $nilai_siswa['akademik']; ?>"></input>
-                        <?php echo form_error('akademik', '<small class="text-danger pl-2">', '</small>'); ?>
-                     </div>
-                  </div>
-                  <div class="form-group row">
-                     <label for="sikap" class="col-lg-3 col-form-label">Nilai Sikap *</label>
-                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="sikap" name="sikap" value="<?php echo $nilai_siswa['sikap']; ?>"></input>
-                        <?php echo form_error('sikap', '<small class="text-danger pl-2">', '</small>'); ?>
-                     </div>
-                  </div>
-                  <div class="form-group row">
-                     <label for="keaktifan" class="col-lg-3 col-form-label">Nilai Keaktifan *</label>
-                     <div class="col-lg-9">
-                        <input type="text" class="form-control" id="keaktifan" name="keaktifan" value="<?php echo $nilai_siswa['keaktifan']; ?>"></input>
-                        <?php echo form_error('keaktifan', '<small class="text-danger pl-2">', '</small>'); ?>
-                     </div>
-                  </div>
+                  <?php $i = 0; ?>
+                  <?php foreach ($nilai_siswa as $k) : ?>
+                     <?php if ($k['jenis_nilai'] == 'angka') : ?>
+                        <div class="form-group row">
+                           <label for="" class="col-lg-4 col-form-label"><?php echo $k['nama_kriteria']; ?> *</label>
+                           <div class="col-lg-8">
+                              <input type="number" min="0" max="100" class="form-control" name="nilai[<?php echo $i; ?>][nilai]" value="<?php echo $k['nilai']; ?>">
+                              <input type="hidden" name="nilai[<?php echo $i; ?>][id_kriteria]" value="<?php echo $k['id_kriteria']; ?>">
+                              <?php echo form_error('akademik', '<small class="text-danger pl-2">', '</small>'); ?>
+                           </div>
+                        </div>
+                     <?php else : ?>
+                        <div class="form-group row">
+                           <label for="" class="col-lg-4 col-form-label"><?php echo $k['nama_kriteria']; ?> *</label>
+                           <div class="col-lg-8">
+                              <input type="text" class="form-control" name="nilai[<?php echo $i; ?>][nilai]" value="<?php echo $k['nilai']; ?>">
+                              <input type="hidden" name="nilai[<?php echo $i; ?>][id_kriteria]" value="<?php echo $k['id_kriteria']; ?>">
+                              <?php echo form_error('akademik', '<small class="text-danger pl-2">', '</small>'); ?>
+                           </div>
+                        </div>
+                     <?php endif; ?>
+                     <?php $i++; ?>
+                  <?php endforeach; ?>
                   <small style="color: red;">*harus diisi</small>
                   <div class="d-flex mt-4">
                      <a href="<?php echo site_url(); ?>nilai_siswa" class="btn btn-secondary ml-auto">Kembali</a>
