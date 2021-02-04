@@ -77,13 +77,6 @@
         Perhitungan
     </div>
 
-    <!-- Nav Item - Edit Test -->
-    <li class="nav-item <?php echo ($this->uri->segment(1) == 'edit_test' ? 'active' : ''); ?>">
-        <a class="nav-link" href="<?php echo site_url(); ?>perhitungan/alternatif">
-            <i class="far fa-fw fa-file-word"></i>
-            <span>Alternatif</span></a>
-    </li>
-
     <!-- Nav Item - Test Qeustion Collpapse -->
     <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_test' ? 'active' : ''); ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages1">

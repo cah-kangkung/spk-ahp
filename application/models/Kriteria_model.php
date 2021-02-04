@@ -9,6 +9,29 @@ class Kriteria_model extends CI_Model
       return $this->db->insert('kriteria', $data);
    }
 
+   public function insert_nilai($data = array())
+   {
+      $insert = array();
+      foreach ($data as $d) {
+         $i = (float) $d;
+         array_push($insert, $i);
+      }
+
+      foreach ($insert as $nilai) {
+         $this->db->query("INSERT INTO nilai_kriteria (nilai) VALUES ('$nilai')");
+      }
+   }
+
+   public function truncate_nilai()
+   {
+      return $this->db->query("TRUNCATE TABLE nilai_kriteria");
+   }
+
+   public function getAllNilaiKriteria()
+   {
+      return $this->db->query("SELECT * FROM nilai_kriteria ")->result_array();
+   }
+
    public function getAllKriteria()
    {
       return $this->db->query("SELECT * FROM kriteria ")->result_array();

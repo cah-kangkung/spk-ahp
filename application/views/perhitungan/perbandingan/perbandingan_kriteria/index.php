@@ -20,7 +20,7 @@
       </div>
    <?php endif; ?>
 
-   <form action="<?php echo site_url(); ?>perbandingan/hitung_perbandingan_kriteria" method="post">
+   <form action="<?php echo site_url(); ?>perbandingan/submit_perbandingan_kriteria" method="post">
 
       <div class="card">
          <div class="card-header">Matriks</div>
