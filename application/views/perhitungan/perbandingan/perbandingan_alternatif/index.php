@@ -20,184 +20,36 @@
       </div>
    <?php endif; ?>
 
-   <form action="<?php echo site_url(); ?>perbandingan/hitung_perbandingan_alternatif" method="post">
-
-      <div class="card">
-         <div class="card-header">Matriks</div>
-         <div class="card-body">
-            <table class="table table-bordered">
-               <thead class="thead-dark">
-                  <tr>
-                     <th scope="col">Alternatif</th>
-                     <?php foreach ($lables as $lable) : ?>
-                        <th scope="col"><?php echo $lable; ?></th>
-                     <?php endforeach; ?>
-                  </tr>
-               </thead>
-               <tbody>
-                  <?php for ($i = 0; $i < count($i_matrix); $i++) : ?>
-                     <tr>
-                        <td><?php echo $lables[$i]; ?></td>
-                        <?php for ($j = 0; $j < count($i_matrix); $j++) : ?>
-                           <td>
-                              <?php if ($i > $j) : ?>
-                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nilai_kriteria[]" value="<?php echo $i_matrix[$i][$j]; ?>" id="k<?php echo $i . $j; ?>" readonly>
-                                 </div>
-                              <?php elseif ($i === $j) : ?>
-                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nilai_kriteria[]" value="<?php echo $i_matrix[$i][$j]; ?>" id="k<?php echo $i . $j; ?>" readonly>
-                                 </div>
-                              <?php else : ?>
-                                 <div class="form-group">
-                                    <input type="number" min="1" max="9" class="form-control" name="nilai_kriteria[]" value="<?php echo $i_matrix[$i][$j]; ?>" id="k<?php echo $i . $j; ?>" onchange="changeOppositeValue(this)" onKeyDown="return false">
-                                 </div>
-                              <?php endif; ?>
-                           </td>
-                        <?php endfor; ?>
-                     </tr>
+   <?php if ($bobot_alternatif) : ?>
+      <table class="table table-bordered">
+         <thead class="thead-dark">
+            <tr>
+               <th scope="col">#</th>
+               <th scope="col">Nama Siswa</th>
+               <?php foreach ($kriteria as $k) : ?>
+                  <th scope="col"><?php echo $k['nama_kriteria']; ?></th>
+               <?php endforeach; ?>
+            </tr>
+         </thead>
+         <tbody>
+            <?php $c = 1; ?>
+            <?php foreach ($bobot_alternatif as $bobot) : ?>
+               <tr>
+                  <th scope="row"><?php echo $c; ?></th>
+                  <td><?php echo $bobot[0]; ?></td>
+                  <?php for ($i = 0; $i < count($kriteria); $i++) : ?>
+                     <th scope="col"><?php echo $bobot[$i + 1]; ?></th>
                   <?php endfor; ?>
-                  <?php if ($total_kolom) : ?>
-                     <tr>
-                        <td>Total Kolum</td>
-                        <?php foreach ($total_kolom as $tk) : ?>
-                           <td>
-                              <div class="form-group">
-                                 <input type="text" class="form-control" value="<?php echo $tk; ?>" readonly>
-                              </div>
-                           </td>
-                        <?php endforeach; ?>
-                     </tr>
-                  <?php endif; ?>
-               </tbody>
-            </table>
-         </div>
-      </div>
+               </tr>
 
-      <!-- Normalisasi Matriiikssss -->
-      <?php if ($normalisasi_matriks) : ?>
-         <div class="card mt-4">
-            <div class="card-header">Matriks Normalisasi + Bobot</div>
-            <div class="card-body">
-               <table class="table table-bordered">
-                  <thead class="thead-dark">
-                     <tr>
-                        <th scope="col">Kriteria</th>
-                        <?php foreach ($lables as $lable) : ?>
-                           <th scope="col"><?php echo $lable; ?></th>
-                        <?php endforeach; ?>
-                        <th scope="col">Bobot Prioritas</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <?php for ($i = 0; $i < count($normalisasi_matriks); $i++) : ?>
-                        <tr>
-                           <td><?php echo $lables[$i]; ?></td>
-                           <?php for ($j = 0; $j < count($normalisasi_matriks); $j++) : ?>
-                              <td>
-                                 <div class="form-group">
-                                    <input type="text" class="form-control" value="<?php echo $normalisasi_matriks[$i][$j]; ?>" readonly>
-                                 </div>
-                              </td>
-                           <?php endfor; ?>
-                           <td>
-                              <div class="form-group">
-                                 <input type="text" class="form-control" value="<?php echo $bobot_kriteria[$i]; ?>" readonly>
-                              </div>
-                           </td>
-                        </tr>
-                     <?php endfor; ?>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-      <?php endif; ?>
+               <?php $c++; ?>
+            <?php endforeach; ?>
 
+         </tbody>
+      </table>
+   <?php endif; ?>
 
-      <!-- Consistency Measure -->
-      <?php if ($normalisasi_matriks) : ?>
-         <div class="card mt-4">
-            <div class="card-header">Consistency Measure</div>
-            <div class="card-body">
-               <table class="table table-bordered">
-                  <thead class="thead-dark">
-                     <tr>
-                        <th scope="col">Kriteria</th>
-                        <?php foreach ($lables as $lable) : ?>
-                           <th scope="col"><?php echo $lable; ?></th>
-                        <?php endforeach; ?>
-                        <th scope="col">CM</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <?php for ($i = 0; $i < count($normalisasi_matriks); $i++) : ?>
-                        <tr>
-                           <td><?php echo $lables[$i]; ?></td>
-                           <?php for ($j = 0; $j < count($normalisasi_matriks); $j++) : ?>
-                              <td>
-                                 <div class="form-group">
-                                    <input type="text" class="form-control" value="<?php echo $normalisasi_matriks[$i][$j]; ?>" readonly>
-                                 </div>
-                              </td>
-                           <?php endfor; ?>
-                           <td>
-                              <div class="form-group">
-                                 <input type="text" class="form-control" value="<?php echo $cm[$i]; ?>" readonly>
-                              </div>
-                           </td>
-                        </tr>
-                     <?php endfor; ?>
-                  </tbody>
-               </table>
-
-               <div class="row">
-                  <div class="col-lg-4">
-                     <table class="table table-bordered">
-                        <thead class="thead-dark">
-                           <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Nilai</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                              <td>CI</td>
-                              <td><?php echo $ci; ?></td>
-                           </tr>
-                           <tr>
-                              <td>RI</td>
-                              <td><?php echo $ri; ?></td>
-                           </tr>
-                           <tr>
-                              <td>CR</td>
-                              <td><?php echo $cr; ?></td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-                  <div class="col-lg-4" style="display: flex; flex-direction: column; justify-content: center;">
-                     <p>Untuk nilai CR 0 – 0.1 dianggap konsisten lebih dari itu tidak konsisten.</p>
-                     <div class="alert <?php echo ($cr >= 0 && $cr <= 0.1) ? 'alert-success' : 'alert-danger'; ?>" role="alert">
-                        <?php if ($cr >= 0 && $cr <= 0.1) : ?>
-                           Perbandingan Kriteria Sudah Konsisten!
-                        <?php else : ?>
-                           Perbandingan Kriteria Belum Konsisten!
-                        <?php endif; ?>
-                     </div>
-                  </div>
-               </div>
-
-            </div>
-         </div>
-      <?php endif; ?>
-
-      <div class="my-3">
-         <button type="submit" class="btn btn-primary">Hitung</button>
-         <a href="<?php echo site_url(); ?>perbandingan/reset" class="btn btn-danger">Reset</a>
-      </div>
-   </form>
-
-
+   <a href="<?php echo site_url(); ?>perbandingan/submit_perbandingan_alternatif" class="btn btn-primary">Hitung</a>
 
 
 </div>

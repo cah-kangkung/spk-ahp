@@ -24,6 +24,11 @@ class Nilai_Siswa_model extends CI_Model
       return $this->db->query("SELECT * FROM siswa WHERE `nama_siswa` = '$nama_siswa'")->row_array();
    }
 
+   public function getNilaiSiswaByIDKriteria($id_kriteria)
+   {
+      return $this->db->query("SELECT nilai_siswa.id, nilai_siswa.id_siswa, nilai_siswa.id_kriteria, nilai_siswa.nilai, kriteria.jenis_nilai  FROM nilai_siswa INNER JOIN kriteria ON nilai_siswa.id_kriteria=kriteria.id_kriteria WHERE nilai_siswa.id_kriteria = '$id_kriteria'")->result_array();
+   }
+
    public function countNilaiSiswa()
    {
       return $this->db->count_all('nilai_siswa');

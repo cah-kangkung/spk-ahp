@@ -86,14 +86,14 @@
         <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?php echo site_url(); ?>perbandingan/perbandingan_kriteria">Perbandingan Kriteria</a>
-                <a class="collapse-item" href="<?php echo site_url(); ?>perhitungan/perbandingan/perbandingan_alternatif/index">Perbandingan Alternatif</a>
+                <a class="collapse-item" href="<?php echo site_url(); ?>perbandingan/perbandingan_alternatif">Perbandingan Alternatif</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Payment -->
     <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_payment' ? 'active' : ''); ?>">
-        <a class="nav-link" href="<?php echo site_url(); ?>perhitungan/hasil">
+        <a class="nav-link" href="<?php echo site_url(); ?>Hasil/tampil">
             <i class="far fa-fw fa-credit-card"></i>
             <span>Hasil</span></a>
     </li>
