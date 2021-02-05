@@ -32,6 +32,7 @@ class Perbandingan extends CI_Controller
          $nilai_kriteria = array_column($nilai_kriteria, 'nilai');
 
          if ($nilai_kriteria) {
+            $this->Kriteria->truncate_nilai();
             $this->_hitung_perbandingan_kriteria($nilai_kriteria);
          } else {
             $n = $this->Kriteria->countKriteria();
@@ -296,54 +297,93 @@ class Perbandingan extends CI_Controller
    {
       $hasil = 0;
       if ($jenis_nilai === 'angka') {
-         $selisih_abs = abs($i - $j);
-         $selisih = round($selisih_abs);
-
-         // kondisi selisih
-         if ($selisih == 0) {
-            $hasil = 1;
-         } elseif ($selisih == 10) {
-            $hasil = 2;
-         } elseif ($selisih == 20) {
-            $hasil = 3;
-         } elseif ($selisih == 30) {
-            $hasil = 4;
-         } elseif ($selisih == 40) {
-            $hasil = 5;
-         } elseif ($selisih == 50) {
-            $hasil = 6;
-         } elseif ($selisih == 60) {
-            $hasil = 7;
-         } elseif ($selisih == 70) {
-            $hasil = 8;
-         } elseif ($selisih >= 80) {
-            $hasil = 9;
+         $selisih = ($i - $j);
+         $selisih_round = round($selisih, -1);
+         if ($selisih_round >= 0) {
+            if ($selisih == 0) {
+               $hasil = 1;
+            } elseif ($selisih == 10) {
+               $hasil = 2;
+            } elseif ($selisih == 20) {
+               $hasil = 3;
+            } elseif ($selisih == 30) {
+               $hasil = 4;
+            } elseif ($selisih == 40) {
+               $hasil = 5;
+            } elseif ($selisih == 50) {
+               $hasil = 6;
+            } elseif ($selisih == 60) {
+               $hasil = 7;
+            } elseif ($selisih == 70) {
+               $hasil = 8;
+            } elseif ($selisih >= 80) {
+               $hasil = 9;
+            }
+         } elseif ($selisih_round < 0) {
+            // kondisi selisih minus
+            if ($selisih <= -80) {
+               $hasil = 1 / 9;
+            } elseif ($selisih == -70) {
+               $hasil = 1 / 8;
+            } elseif ($selisih == -60) {
+               $hasil = 1 / 7;
+            } elseif ($selisih == -50) {
+               $hasil = 1 / 6;
+            } elseif ($selisih == -40) {
+               $hasil = 1 / 5;
+            } elseif ($selisih == -30) {
+               $hasil = 1 / 4;
+            } elseif ($selisih == -20) {
+               $hasil = 1 / 3;
+            } elseif ($selisih == -10) {
+               $hasil = 1 / 2;
+            }
          }
       } elseif ($jenis_nilai === 'huruf') {
          $i = $this->ubah_huruf($i);
          $j = $this->ubah_huruf($j);
 
-         $selisih = abs($i - $j);
+         $selisih = $i - $j;
 
-         // kondisi selisih
-         if ($selisih == 0) {
-            $hasil = 1;
-         } elseif ($selisih == 10) {
-            $hasil = 2;
-         } elseif ($selisih == 20) {
-            $hasil = 3;
-         } elseif ($selisih == 30) {
-            $hasil = 4;
-         } elseif ($selisih == 40) {
-            $hasil = 5;
-         } elseif ($selisih == 50) {
-            $hasil = 6;
-         } elseif ($selisih == 60) {
-            $hasil = 7;
-         } elseif ($selisih == 70) {
-            $hasil = 8;
-         } elseif ($selisih >= 80) {
-            $hasil = 9;
+         if ($selisih >= 0) {
+            if ($selisih == 0) {
+               $hasil = 1;
+            } elseif ($selisih == 10) {
+               $hasil = 2;
+            } elseif ($selisih == 20) {
+               $hasil = 3;
+            } elseif ($selisih == 30) {
+               $hasil = 4;
+            } elseif ($selisih == 40) {
+               $hasil = 5;
+            } elseif ($selisih == 50) {
+               $hasil = 6;
+            } elseif ($selisih == 60) {
+               $hasil = 7;
+            } elseif ($selisih == 70) {
+               $hasil = 8;
+            } elseif ($selisih >= 80) {
+               $hasil = 9;
+            }
+         } elseif ($selisih < 0) {
+            // kondisi selisih minus
+            if ($selisih <= -80) {
+               $hasil = 1 / 9;
+            } elseif ($selisih == -70) {
+               $hasil = 1 / 8;
+            } elseif ($selisih == -60) {
+               $hasil = 1 / 7;
+            } elseif ($selisih == -50) {
+               $hasil = 1 / 6;
+            } elseif ($selisih == -40) {
+               $hasil = 1 / 5;
+            } elseif ($selisih == -30) {
+               $hasil = 1 / 4;
+            } elseif ($selisih == -20) {
+               $hasil = 1 / 3;
+            } elseif ($selisih == -10) {
+               $hasil = 1 / 2;
+            }
          }
       }
 
@@ -365,7 +405,7 @@ class Perbandingan extends CI_Controller
       } elseif ($huruf == 'E') {
          $angka = 20;
       } elseif ($huruf == 'F') {
-         $angka = 0;
+         $angka = 10;
       }
 
       return $angka;

@@ -41,7 +41,6 @@
                      <th scope="col"><?php echo $bobot[$i + 1]; ?></th>
                   <?php endfor; ?>
                </tr>
-
                <?php $c++; ?>
             <?php endforeach; ?>
 

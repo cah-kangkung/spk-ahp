@@ -47,36 +47,45 @@
       </div>
    <?php endif; ?>
 
+
    <?php if ($bobot_alternatif) : ?>
-      <table class="table table-bordered">
-         <thead class="thead-dark">
-            <tr>
-               <th scope="col">#</th>
-               <th scope="col">Nama Siswa</th>
-               <?php foreach ($kriteria as $k) : ?>
-                  <th scope="col"><?php echo $k['nama_kriteria']; ?></th>
-               <?php endforeach; ?>
-            </tr>
-         </thead>
-         <tbody>
-            <?php $c = 1; ?>
-            <?php foreach ($bobot_alternatif as $bobot) : ?>
-               <tr>
-                  <th scope="row"><?php echo $c; ?></th>
-                  <td><?php echo $bobot[0]; ?></td>
-                  <?php for ($i = 0; $i < count($kriteria); $i++) : ?>
-                     <th scope="col"><?php echo $bobot[$i + 1]; ?></th>
-                  <?php endfor; ?>
-               </tr>
+      <div class="card mt-4">
+         <div class="card-header">Matriks Ranking</div>
+         <div class="card-body">
+            <table class="table table-bordered">
+               <thead class="thead-dark">
+                  <tr>
+                     <th scope="col">#</th>
+                     <th scope="col">Nama Siswa</th>
+                     <?php foreach ($kriteria as $k) : ?>
+                        <th scope="col"><?php echo $k['nama_kriteria']; ?></th>
+                     <?php endforeach; ?>
+                     <th>Nilai</th>
+                     <th>Ranking</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php $c = 1; ?>
+                  <?php foreach ($ranking as $r) : ?>
+                     <tr>
+                        <th scope="row"><?php echo $c; ?></th>
+                        <td><?php echo $r[0]; ?></td>
+                        <?php for ($i = 0; $i < count($kriteria); $i++) : ?>
+                           <th scope="col"><?php echo $r[$i + 1]; ?></th>
+                        <?php endfor; ?>
+                        <td><?php echo end($r); ?></td>
+                        <td scope="row"><?php echo $c; ?></td>
+                     </tr>
 
-               <?php $c++; ?>
-            <?php endforeach; ?>
+                     <?php $c++; ?>
+                  <?php endforeach; ?>
 
-         </tbody>
-      </table>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
    <?php endif; ?>
-
-   <a href="<?php echo site_url(); ?>perbandingan/submit_perbandingan_alternatif" class="btn btn-primary">Hitung</a>
 
 
 </div>

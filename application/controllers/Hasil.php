@@ -83,6 +83,15 @@ class Hasil extends CI_Controller
             array_push($data['bobot_alternatif'], $bobot_siswa);
          }
 
+         $data['ranking'] = $this->_hitung_ranking($data['bobot_alternatif'], $data['bobot_kriteria']);
+
+
+         // sort array menjadi ranking
+         end($data['ranking']);
+         $index = key($data['ranking']);
+         $keys = array_column($data['ranking'], $index);
+         array_multisort($keys, SORT_DESC, $data['ranking']);
+
          $data['kriteria'] = $this->Kriteria->getAllKriteria();
 
          $this->load->view('templates/admin_headbar', $data);
@@ -91,5 +100,21 @@ class Hasil extends CI_Controller
          $this->load->view('perhitungan/hasil/index');
          $this->load->view('templates/admin_footer');
       }
+   }
+
+   private function _hitung_ranking($bobot_alternatif, $bobot_kriteria)
+   {
+      $ranking = array();
+      foreach ($bobot_alternatif as $ba) {
+         $hasil = 0;
+         for ($j = 0; $j < count($bobot_kriteria); $j++) {
+            $c = $ba[$j + 1] * $bobot_kriteria[$j];
+            $hasil += $c;
+         }
+         array_push($ba, $hasil);
+         array_push($ranking, $ba);
+      }
+
+      return $ranking;
    }
 }
