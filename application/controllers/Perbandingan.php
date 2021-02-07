@@ -224,6 +224,14 @@ class Perbandingan extends CI_Controller
                } else {
                   $nilai = $this->banding($nilai_alternatif[$i]['nilai'], $nilai_alternatif[$j]['nilai'], $nilai_alternatif[$i]['jenis_nilai']);
 
+                  if ($nilai == 0) {
+                     var_dump($nilai_alternatif[$i]['nilai']);
+                     var_dump($nilai_alternatif[$j]['nilai']);
+                     var_dump($nilai_alternatif[$i]['jenis_nilai']);
+                     var_dump($nilai);
+                     die;
+                  }
+
                   $i_matriks[$i][$j] = $nilai;
                   $i_matriks[$j][$i] = 1 / $nilai;
                }
@@ -316,7 +324,9 @@ class Perbandingan extends CI_Controller
                $hasil = 7;
             } elseif ($selisih == 70) {
                $hasil = 8;
-            } elseif ($selisih >= 80) {
+            } elseif ($selisih == 80) {
+               $hasil = 9;
+            } else {
                $hasil = 9;
             }
          } elseif ($selisih_round < 0) {
@@ -337,6 +347,8 @@ class Perbandingan extends CI_Controller
                $hasil = 1 / 3;
             } elseif ($selisih == -10) {
                $hasil = 1 / 2;
+            } else {
+               $hasil = 1 / 9;
             }
          }
       } elseif ($jenis_nilai === 'huruf') {
@@ -364,6 +376,8 @@ class Perbandingan extends CI_Controller
                $hasil = 8;
             } elseif ($selisih >= 80) {
                $hasil = 9;
+            } else {
+               $hasil = 9;
             }
          } elseif ($selisih < 0) {
             // kondisi selisih minus
@@ -383,6 +397,8 @@ class Perbandingan extends CI_Controller
                $hasil = 1 / 3;
             } elseif ($selisih == -10) {
                $hasil = 1 / 2;
+            } else {
+               $hasil = 1 / 9;
             }
          }
       }
