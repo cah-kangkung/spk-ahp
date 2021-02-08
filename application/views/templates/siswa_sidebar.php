@@ -4,7 +4,7 @@
    <!-- Sidebar - Brand -->
    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url(); ?>siswa_dashboard">
       <div class="sidebar-brand-icon">
-         <i class="fas fa-user-cog"></i>
+         <i class="fas fa-user-graduate"></i>
       </div>
       <div class="sidebar-brand-text mx-3">Siswa</div>
    </a>
@@ -29,7 +29,7 @@
 
    <!-- Nav Item - Payment -->
    <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_payment' ? 'active' : ''); ?>">
-      <a class="nav-link" href="<?php echo site_url(); ?>Hasil/tampil">
+      <a class="nav-link" href="<?php echo site_url(); ?>Siswa_hasil/tampil">
          <i class="far fa-fw fa-credit-card"></i>
          <span>Hasil</span></a>
    </li>

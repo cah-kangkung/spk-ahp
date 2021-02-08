@@ -80,7 +80,7 @@
     <!-- Nav Item - Test Qeustion Collpapse -->
     <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_test' ? 'active' : ''); ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages1">
-            <i class="fas fa-fw fa-question"></i>
+            <i class="fas fa-table"></i>
             <span>Perbandingan</span>
         </a>
         <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">

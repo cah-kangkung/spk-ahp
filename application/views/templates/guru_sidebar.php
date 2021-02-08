@@ -4,9 +4,10 @@
    <!-- Sidebar - Brand -->
    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo site_url(); ?>guru_dashboard">
       <div class="sidebar-brand-icon">
-         <i class="fas fa-user-cog"></i>
+         <i class="fas fa-chalkboard-teacher"></i>
       </div>
       <div class="sidebar-brand-text mx-3">Guru</div>
+
    </a>
 
    <!-- Divider -->
@@ -80,7 +81,7 @@
    <!-- Nav Item - Test Qeustion Collpapse -->
    <li class="nav-item <?php echo ($this->uri->segment(1) == 'admin_test' ? 'active' : ''); ?>">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages1">
-         <i class="fas fa-fw fa-question"></i>
+         <i class="fas fa-table"></i>
          <span>Perbandingan</span>
       </a>
       <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
