@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Hasil extends CI_Controller
+class Guru_hasil extends CI_Controller
 {
    public function __construct()
    {
@@ -100,9 +100,9 @@ class Hasil extends CI_Controller
       $data['kriteria'] = $this->Kriteria->getAllKriteria();
 
       $this->load->view('templates/admin_headbar', $data);
-      $this->load->view('templates/admin_sidebar');
+      $this->load->view('templates/guru_sidebar');
       $this->load->view('templates/admin_topbar');
-      $this->load->view('perhitungan/hasil/index');
+      $this->load->view('guru_perhitungan/guru_hasil/index');
       $this->load->view('templates/admin_footer');
    }
 

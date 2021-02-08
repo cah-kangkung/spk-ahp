@@ -58,15 +58,6 @@
                                         </button>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="<?php echo site_url(); ?>user_auth/register">Buat akun</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="<?php echo site_url(); ?>user_auth/forgot_password">Lupa Kata Sandi?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="<?php echo site_url(); ?>home">Kembali ke beranda</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
