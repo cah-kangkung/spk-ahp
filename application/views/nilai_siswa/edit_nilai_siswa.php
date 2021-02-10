@@ -34,9 +34,57 @@
                         <div class="form-group row">
                            <label for="" class="col-lg-4 col-form-label"><?php echo $k['nama_kriteria']; ?> *</label>
                            <div class="col-lg-8">
-                              <input type="text" class="form-control" name="nilai[<?php echo $i; ?>][nilai]" value="<?php echo $k['nilai']; ?>">
+                              <select class="form-control" name="nilai[<?php echo $i; ?>][nilai]">
+                                 <?php if ($k['nama_kriteria'] === "A") : ?>
+                                    <option value="A" selected>A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                 <?php elseif ($k['nama_kriteria'] === "B") : ?>
+                                    <option value="A">A</option>
+                                    <option value="B" selected>B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                 <?php elseif ($k['nama_kriteria'] === "C") : ?>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C" selected>C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                 <?php elseif ($k['nama_kriteria'] === "D") : ?>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D" selected>D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                 <?php elseif ($k['nama_kriteria'] === "E") : ?>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E" selected>E</option>
+                                    <option value="F">F</option>
+                                 <?php else : ?>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F" selected>F</option>
+                              </select>
+                              <?php
+                                    echo json_encode($k['nama_kriteria']);
+                                    die;
+                              ?>
                               <input type="hidden" name="nilai[<?php echo $i; ?>][id_kriteria]" value="<?php echo $k['id_kriteria']; ?>">
                               <?php echo form_error('akademik', '<small class="text-danger pl-2">', '</small>'); ?>
+                           <?php endif; ?>
                            </div>
                         </div>
                      <?php endif; ?>

@@ -30,6 +30,7 @@
                   <tr>
                      <th>Nama Kriteria</th>
                      <th>Kode Kriteria</th>
+                     <th>Jenis Nilai</th>
                      <th>Action</th>
                   </tr>
                </thead>
@@ -38,6 +39,7 @@
                      <tr>
                         <td><?php echo $kriteria['nama_kriteria'] ?></td>
                         <td><?php echo $kriteria['kode_kriteria'] ?></td>
+                        <td><?php echo $kriteria['jenis_nilai'] ?></td>
                         <td>
                            <a href="<?php echo site_url(); ?>kriteria/hapus_kriteria/<?php echo $kriteria['id_kriteria']; ?>"><span class="badge badge-danger">Hapus</span></a>
                            <a href="<?php echo site_url(); ?>kriteria/edit_kriteria/<?php echo $kriteria['id_kriteria']; ?>"><span class="badge badge-secondary">Edit</span></a>

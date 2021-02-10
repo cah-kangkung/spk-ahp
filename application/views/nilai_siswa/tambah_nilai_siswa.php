@@ -35,7 +35,14 @@
                         <div class="form-group row">
                            <label for="" class="col-lg-4 col-form-label"><?php echo $k['nama_kriteria']; ?> *</label>
                            <div class="col-lg-8">
-                              <input type="text" class="form-control" name="nilai[<?php echo $i; ?>][nilai]"><?php echo set_value('akademik'); ?></input>
+                              <select class="form-control" id="exampleFormControlSelect1" name="nilai[<?php echo $i; ?>][nilai]"><?php echo set_value('akademik'); ?>
+                                 <option>A</option>
+                                 <option>B</option>
+                                 <option>C</option>
+                                 <option>D</option>
+                                 <option>E</option>
+                                 <option>F</option>
+                              </select>
                               <input type="hidden" name="nilai[<?php echo $i; ?>][id_kriteria]" value="<?php echo $k['id_kriteria']; ?>">
                               <?php echo form_error('akademik', '<small class="text-danger pl-2">', '</small>'); ?>
                            </div>
@@ -43,7 +50,9 @@
                      <?php endif; ?>
                      <?php $i++; ?>
                   <?php endforeach; ?>
-                  <small style="color: red;">*harus diisi</small>
+                  <small style="color: red;">*harus diisi</small><br>
+                  <small style="color: red;">*untuk range nilai akademik 0 - 100</small><br>
+                  <small style="color: red;">*untuk range nilai sikap dan keaktifan A - F</small>
                   <div class="d-flex mt-4">
                      <a href="<?php echo site_url(); ?>nilai_siswa/index" class="btn btn-secondary ml-auto">Kembali</a>
                      <button type="submit" class="btn btn-primary ml-3">Tambah</button>

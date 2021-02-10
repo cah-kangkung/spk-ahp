@@ -26,6 +26,15 @@
                         <?php echo form_error('kode_kriteria', '<small class="text-danger pl-2">', '</small>'); ?>
                      </div>
                   </div>
+                  <div class="form-group row">
+                     <label for="jenis_nilai" class="col-lg-4 col-form-label">Jenis Nilai *</label>
+                     <div class="col-lg-8">
+                        <select class="form-control" id="jenis_nilai" name="jenis_nilai">
+                           <option>angka</option>
+                           <option>huruf</option>
+                        </select>
+                     </div>
+                  </div>
                   <small style="color: red;">*harus diisi</small>
                   <div class="d-flex mt-4">
                      <a href="<?php echo site_url(); ?>kriteria" class="btn btn-secondary ml-auto">Kembali</a>

@@ -56,9 +56,10 @@ class Kriteria_model extends CI_Model
    {
       $nama_kriteria = $new_data['nama_kriteria'];
       $kode_kriteria = $new_data['kode_kriteria'];
+      $jenis_nilai = $new_data['jenis_nilai'];
       $id_kriteria = $new_data['id_kriteria'];
 
-      $query = "UPDATE kriteria SET `nama_kriteria` = '$nama_kriteria', `kode_kriteria` = '$kode_kriteria' WHERE `id_kriteria` = '$id_kriteria'";
+      $query = "UPDATE kriteria SET `nama_kriteria` = '$nama_kriteria', `kode_kriteria` = '$kode_kriteria', `jenis_nilai` = '$jenis_nilai' WHERE `id_kriteria` = '$id_kriteria'";
       return $this->db->query($query);
    }
 

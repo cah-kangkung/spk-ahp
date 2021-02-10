@@ -53,6 +53,7 @@ class Kriteria extends CI_Controller
 
          $this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'required|trim', ['required' => 'Nama Kriteria harus diisi']);
          $this->form_validation->set_rules('kode_kriteria', 'Kode Kriteria', 'required|trim', ['required' => 'Kode Kriteria harus diisi']);
+         $this->form_validation->set_rules('jenis_nilai', 'Jenis Nilai', 'required|trim', ['required' => 'Jenis Nilai harus diisi']);
 
          if ($this->form_validation->run() == false) {
             $data['title'] = "Admin|Tambah Kriteria";
@@ -64,7 +65,8 @@ class Kriteria extends CI_Controller
          } else {
             $data = [
                'nama_kriteria' => $this->input->post('nama_kriteria'),
-               'kode_kriteria' => $this->input->post('kode_kriteria')
+               'kode_kriteria' => $this->input->post('kode_kriteria'),
+               'jenis_nilai' => $this->input->post('jenis_nilai')
             ];
 
             $this->Kriteria->insert($data);
@@ -101,6 +103,7 @@ class Kriteria extends CI_Controller
 
          $this->form_validation->set_rules('nama_kriteria', 'Nama Kriteria', 'required|trim', ['required' => 'Nama Kriteria harus diisi']);
          $this->form_validation->set_rules('kode_kriteria', 'Kode Kriteria', 'required|trim', ['required' => 'Kode Kriteria harus diisi']);
+         $this->form_validation->set_rules('jenis_nilai', 'Jenis Nilai', 'required|trim', ['required' => 'Jenis Nilai harus diisi']);
 
          if ($this->form_validation->run() == false) {
             $data['title'] = "Admin|Edit Kriteria";
@@ -114,6 +117,7 @@ class Kriteria extends CI_Controller
             $data = [
                'nama_kriteria' => $this->input->post('nama_kriteria'),
                'kode_kriteria' => $this->input->post('kode_kriteria'),
+               'jenis_nilai' => $this->input->post('jenis_nilai'),
                'id_kriteria' => $kriteria_id
             ];
 
