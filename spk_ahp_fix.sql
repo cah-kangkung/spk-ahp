@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2021 at 06:12 AM
--- Server version: 10.4.14-MariaDB
+-- Generation Time: Feb 14, 2021 at 02:43 PM
+-- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -39,18 +39,18 @@ CREATE TABLE `bobot_alternatif` (
 --
 
 INSERT INTO `bobot_alternatif` (`id`, `id_kriteria`, `id_siswa`, `nilai_bobot`) VALUES
-(1, 1, 6, 0.0909104),
-(2, 1, 7, 0.0452155),
-(3, 1, 8, 0.561074),
-(4, 1, 9, 0.3028),
-(5, 3, 6, 0.0374355),
-(6, 3, 7, 0.221359),
-(7, 3, 8, 0.519846),
-(8, 3, 9, 0.221359),
-(9, 4, 6, 0.0357143),
-(10, 4, 7, 0.321429),
-(11, 4, 8, 0.321429),
-(12, 4, 9, 0.321429);
+(1, 1, 11, 0.504144),
+(2, 1, 12, 0.259936),
+(3, 1, 13, 0.037765),
+(4, 1, 14, 0.198155),
+(5, 3, 11, 0.375),
+(6, 3, 12, 0.125),
+(7, 3, 13, 0.125),
+(8, 3, 14, 0.375),
+(9, 4, 11, 0.388927),
+(10, 4, 12, 0.388927),
+(11, 4, 13, 0.0686945),
+(12, 4, 14, 0.153452);
 
 -- --------------------------------------------------------
 
@@ -118,18 +118,18 @@ CREATE TABLE `nilai_siswa` (
 --
 
 INSERT INTO `nilai_siswa` (`id`, `id_kriteria`, `id_siswa`, `nilai`) VALUES
-(1, 1, 6, '60'),
-(2, 3, 6, 'F'),
-(3, 4, 6, 'F'),
-(4, 1, 7, '40'),
-(5, 3, 7, 'B'),
-(6, 4, 7, 'A'),
-(7, 1, 8, '100'),
-(8, 3, 8, 'A'),
-(9, 4, 8, 'A'),
-(10, 1, 9, '85'),
-(11, 3, 9, 'B'),
-(12, 4, 9, 'A');
+(16, 1, 11, '90'),
+(17, 3, 11, 'A'),
+(18, 4, 11, 'A'),
+(19, 1, 12, '85'),
+(20, 3, 12, 'B'),
+(21, 4, 12, 'A'),
+(22, 1, 13, '65'),
+(23, 3, 13, 'B'),
+(24, 4, 13, 'C'),
+(25, 1, 14, '80'),
+(26, 3, 14, 'A'),
+(27, 4, 14, 'B');
 
 -- --------------------------------------------------------
 
@@ -154,10 +154,10 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `nama_siswa`, `nisn`, `nis`, `jurusan`, `jenis_kelamin`, `alamat`, `no_telepon`, `status_nilai`) VALUES
-(6, 'AHMAD RIFAI ARIF', '111', '01', 'AKL', 'Laki-Laki', 'asoy', '090909', 1),
-(7, 'udin', '0025126583', '9751', 'AKL', 'Laki-Laki', 'uhuy', '123', 1),
-(8, 'ADITYA DWI KURNIA', '0016078513', '9756', 'AKL', 'Laki-Laki', 'cuy', '456', 1),
-(9, 'Haekal Uchiha', '31710000', '33201000', 'OTKP', 'Laki-Laki', 'Jalan jalan ke kebon teh cakep', '08121212121212', 1);
+(11, 'ADELLA AZANTHY', '0040059744', '9929', 'OTKP', 'Perempuan', 'Apus Kota Bambu Selatan Kec. Palmerah', '081932691210', 1),
+(12, 'ADINDA PERMATA TASYA', '0033633593', '9930', 'OTKP', 'Perempuan', 'Jl. Apus II Gg. Kiapang Kota Bambu Selatan Kec. Palmerah', '08989613308', 1),
+(13, 'ADITYA DWI KURNIA', '0025892845', '9932', 'OTKP', 'Laki-Laki', 'JL. DURI MAS BARAT NO. 22 DURI KEPA Kec. Kebon Jeruk', '0895362932503', 1),
+(14, 'adil', '123', '123', 'AKL', 'Laki-Laki', 'ciledug', '12345', 1);
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `role`) VALUES
 (1, 'admin', 'admin', 1),
-(7, 'guru', 'guru', 2);
+(7, 'guru', 'guru', 2),
+(9, 'siswa', 'siswa', 3);
 
 --
 -- Indexes for dumped tables
@@ -238,7 +239,7 @@ ALTER TABLE `bobot_alternatif`
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
-  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `nilai_kriteria`
@@ -250,19 +251,19 @@ ALTER TABLE `nilai_kriteria`
 -- AUTO_INCREMENT for table `nilai_siswa`
 --
 ALTER TABLE `nilai_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
