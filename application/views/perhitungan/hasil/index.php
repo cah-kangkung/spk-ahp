@@ -47,7 +47,6 @@
       </div>
    <?php endif; ?>
 
-
    <?php if ($bobot_alternatif) : ?>
       <div class="card mt-4">
          <div class="card-header">Matriks Ranking</div>

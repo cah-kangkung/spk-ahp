@@ -90,11 +90,8 @@ class Hasil extends CI_Controller
 
       $data['ranking'] = $this->_hitung_ranking($data['bobot_alternatif'], $data['bobot_kriteria']);
 
-
-      // sort array menjadi ranking
-      end($data['ranking']);
-      $index = key($data['ranking']);
-      $keys = array_column($data['ranking'], $index);
+      // sort array menjadi ranking mulai dari nilai yang terbesar
+      $keys = array_column($data['ranking'], 4);
       array_multisort($keys, SORT_DESC, $data['ranking']);
 
       $data['kriteria'] = $this->Kriteria->getAllKriteria();
