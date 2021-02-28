@@ -8,16 +8,16 @@ Basically the end goal is to crate a ranking system by comparing and calculating
 
 ## Case Study
 
-Student overall ranking system based on 3 Criteria:
+Students overall ranking system based on three Criteria:
 
 - Academic
 - Attitude
 - Activeness
 
-With students act as the alternative.
+With "students" act as the alternative.
 
 ## Tech Stack
 
-- Code Igniter 3
+- CodeIgniter 3 with php 7.\*
 - Bootstrap 4
 - MySql
