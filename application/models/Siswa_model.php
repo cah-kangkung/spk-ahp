@@ -56,8 +56,10 @@ class Siswa_model extends CI_Model
 
    public function deleteSiswa($id)
    {
-      $query = "DELETE FROM siswa WHERE `id_siswa` = '$id'";
-      return $this->db->query($query);
+      $this->db->trans_start();
+      $this->db->query("DELETE FROM nilai_siswa WHERE `id_siswa` = '$id'");
+      $this->db->query("DELETE FROM siswa WHERE `id_siswa` = '$id'");
+      $this->db->trans_complete();
    }
 
    public function updatePassword($username, $password)
